@@ -159,4 +159,5 @@ cython_debug/
 .DS_Store
 
 # Data
-data/data_raw.csv
+*.csv
+*.icloud
