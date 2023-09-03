@@ -30,6 +30,7 @@ weather_dtypes = {
     'datetime': str,
     'temp': float,
     'feelslike': float,
+    'dew': float,
     'humidity': float,
     'precip': float,
     'precipprob': float,
@@ -141,3 +142,6 @@ bw = weather_data.merge(
 
 bw.to_csv(data_path+'bike_weather_merged.csv')
 print('done.')
+
+print('merging complete. summary:')
+print(bw.info())
