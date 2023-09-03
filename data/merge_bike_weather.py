@@ -123,6 +123,12 @@ bike_agg['member_classic_avg_dist'] = bike_data[member & classic].groupby(['year
 bike_agg['member_electric_avg_dist'] = bike_data[member & electric].groupby(['year','month','day','hour'])[['distance']].mean()
 bike_agg['casual_classic_avg_dist'] = bike_data[casual & classic].groupby(['year','month','day','hour'])[['distance']].mean()
 bike_agg['casual_electric_avg_dist'] = bike_data[casual & electric].groupby(['year','month','day','hour'])[['distance']].mean()
+bike_agg['total_avg_time'] = bike_data.groupby(['year','month','day','hour'])[['time']].mean()
+bike_agg['total_avg_dist'] = bike_data.groupby(['year','month','day','hour'])[['distance']].mean()
+bike_agg['total_classic_counts'] = bike_data[classic].groupby(['year','month','day','hour']).size().astype('int')
+bike_agg['total_electric_counts'] = bike_data[electric].groupby(['year','month','day','hour']).size().astype('int')
+bike_agg['total_member_counts'] = bike_data[member].groupby(['year','month','day','hour']).size().astype('int')
+bike_agg['total_casual_counts'] = bike_data[casual].groupby(['year','month','day','hour']).size().astype('int')
 
 def most_common(series):
     counts = series.value_counts()
