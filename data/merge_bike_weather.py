@@ -96,7 +96,7 @@ weather_data['day'] = weather_data['datetime'].dt.day.astype('int')
 weather_data['hour'] = weather_data['datetime'].dt.hour.astype('int')
 
 weather_data.drop(
-    ['name','datetime','precipprob','preciptype','snow','windgust','severerisk','stations'], 
+    ['name','datetime','precipprob','preciptype','snow','windgust','solarradiation','solarenergy','severerisk','stations'], 
     axis=1, 
     inplace=True
 )
