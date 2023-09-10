@@ -83,8 +83,8 @@ bike_data.drop(
 ### as this will allow for better correlation analysis.
 ### A majority of rides are less than 60 minutes so we are not filtering
 ### out too many records of interest.
-bike_data = bike_data[bike_data.time > 1 & bike_data.time < 60]
-bike_data = bike_data[bike_data.distance > 0 & bike_data.distance < 25]
+bike_data = bike_data[(bike_data.time > 1) & (bike_data.time < 60)]
+bike_data = bike_data[(bike_data.distance > 0) & (bike_data.distance < 25)]
 
 bike_data = bike_data.replace({'docked_bike': 'classic_bike'}, regex=True)
 print('done.')
