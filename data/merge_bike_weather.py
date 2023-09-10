@@ -77,10 +77,12 @@ bike_data.drop(
     inplace=True
 )
 
-lower = np.percentile(bike_data['time'], 1)
-upper = np.percentile(bike_data['time'], 99)
-bike_data = bike_data[bike_data.time.between(lower, upper)]
-bike_data = bike_data[bike_data.distance < 25]
+### We will filter with a more restrictive time range compared to EDA
+### as this will allow for better correlation analysis.
+### A majority of rides are less than 60 minutes so we are not filtering
+### out too many records of interest.
+bike_data = bike_data[bike_data.time > 1 & bike_data.time < 60]
+bike_data = bike_data[bike_data.distance > 0 & bike_data.distance < 25]
 
 bike_data = bike_data.replace({'docked_bike': 'classic_bike'}, regex=True)
 print('done.')
